@@ -6,7 +6,7 @@ Pre-training and generative modeling for improved language understanding for mul
 
 ## Research Overview
 
-In the past few months, a number of techniques utilizing pre-training, generative modeling, multi-task architectures, data augmentation using back-translation, and efficiency techniques in language modeling have been implemented that have allowed faster training and greater scope for transfer learning. In particular, the four papers listed below have i
+In the past few months, a number of techniques utilizing pre-training, generative modeling, multi-task architectures, data augmentation using back-translation, and efficiency techniques in language modeling have been implemented that have allowed faster training and greater scope for transfer learning. In particular, the five papers below tackle the problem of generative pre-training and multi-task learning in NLP and achieve SOTA results.
 
 1. [OpenAI: Improving Language Understanding by Generative Pre-Training](https://blog.openai.com/language-unsupervised/)
     * [code](https://github.com/openai/finetune-transformer-lm)
@@ -19,8 +19,8 @@ In the past few months, a number of techniques utilizing pre-training, generativ
 
 3. [Google Brain: QANet: Combining Local Convolution with Global Self-Attention for Reading Comprehension](https://arxiv.org/pdf/1804.09541.pdf)
     - [code](https://github.com/ni9elf/QANet)
-    - **_tldr_**: Train a transformer based Q&A model consisting solely of convolutions and self-attentions. Convolutions model local interactions, and self-attention models global interactions. Use back-translation from Google NMT for data augmentation.
-4. [AllenAI: Deep Contextualized Word Vectors](https://github.com/allenai/allennlp/blob/master/tutorials/how_to/elmo.md)
+    - **_tldr_**: Train a transformer based Q&A model consisting solely of convolutions and self-attentions. Convolutions model local interactions, and self-attention models global interactions. Use back-translation from Google [NMT](https://github.com/tensorflow/nmt) for data augmentation. Current #1 on SQuAD.
+4. [AllenAI: Deep Contextualized Word Vectors](https://arxiv.org/abs/1802.05365)
     - [code](https://github.com/allenai/allennlp/blob/master/tutorials/how_to/elmo.md)
         * [tensorflow implementation](https://github.com/allenai/bilm-tf)
     - **_tldr_**: Train a generic language model using Bidirectional-LSTM. 
