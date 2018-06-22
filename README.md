@@ -10,7 +10,7 @@ In the past few months, a number of techniques utilizing pre-training, generativ
 
 1. [OpenAI: Improving Language Understanding by Generative Pre-Training](https://blog.openai.com/language-unsupervised/)
     * [code](https://github.com/openai/finetune-transformer-lm)
-    * **_tldr_**: Train 
+    * **_tldr_**: Train an unsupervised language model using a transformer architecture, and then fine-tune on task-specific datasets.
 2. [fastAI: Universal Language Model Fine-tuning for Text Classification](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html)
     - [code](https://github.com/fastai/fastai/tree/master/fastai) 
     * **_tldr_**: Pre-train a language model on generic English corpus (i.e., Wikipedia). Use that to initialize a new language model on your unlabeled domain-specific corpus. Fine-tune / initalize a new domain-specific architecture for text classification.
@@ -27,5 +27,8 @@ In the past few months, a number of techniques utilizing pre-training, generativ
     ![](imgs/elmo.png)
 5. [Salesforce Research, The Natural Language Decathlon](https://einstein.ai/research/the-natural-language-decathlon)
     - [code: github.com/salesforce/decaNLP](https://github.com/salesforce/decaNLP)
+    - **_tldr_**: Challenge consisting of ten NLP tasks: : question answering, machine translation, summarization, natural language inference, sentiment analysis, semantic role labeling, relation extraction, goal-oriented dialogue, database query generation, and pronoun resolution. Proposed MQAN (multi-task question answering network) which uses bidirectional LSTM to encode both question and context document, dual coattention, compressed further using another two BiLSTMs + self-attention + two more BiLSTMs to obtain final representations.
+
+    ![](https://einstein.ai/static/images/pages/research/decaNLP/MQAN.png)
 
 
