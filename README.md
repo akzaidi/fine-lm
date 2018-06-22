@@ -14,9 +14,18 @@ In the past few months, a number of techniques utilizing pre-training, generativ
 2. [fastAI: Universal Language Model Fine-tuning for Text Classification](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html)
     - [code](https://github.com/fastai/fastai/tree/master/fastai) 
     * **_tldr_**: Pre-train a language model on generic English corpus (i.e., Wikipedia). Use that to initialize a new language model on your unlabeled domain-specific corpus. Fine-tune / initalize a new domain-specific architecture for text classification.
+
+    ![](imgs/ulmfit.png)
+
 3. [Google Brain: QANet: Combining Local Convolution with Global Self-Attention for Reading Comprehension](https://arxiv.org/pdf/1804.09541.pdf)
     - [code](https://github.com/ni9elf/QANet)
-    - **_tldr_**: 
-4. [Salesforce Research, The Natural Language Decathlon](https://einstein.ai/research/the-natural-language-decathlon)
+    - **_tldr_**: Train a transformer based Q&A model consisting solely of convolutions and self-attentions. Convolutions model local interactions, and self-attention models global interactions. Use back-translation from Google NMT for data augmentation.
+4. [AllenAI: Deep Contextualized Word Vectors](https://github.com/allenai/allennlp/blob/master/tutorials/how_to/elmo.md)
+    - [code](https://github.com/allenai/allennlp/blob/master/tutorials/how_to/elmo.md)
+        * [tensorflow implementation](https://github.com/allenai/bilm-tf)
+    - **_tldr_**: Train a generic language model using Bidirectional-LSTM. 
+    ![](imgs/elmo.png)
+5. [Salesforce Research, The Natural Language Decathlon](https://einstein.ai/research/the-natural-language-decathlon)
     - [code: github.com/salesforce/decaNLP](https://github.com/salesforce/decaNLP)
+
 
