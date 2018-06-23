@@ -32,3 +32,9 @@ In the past few months, a number of techniques utilizing pre-training, generativ
     ![](https://einstein.ai/static/images/pages/research/decaNLP/MQAN.png)
 
 
+## Data
+
+The task-specific dataset we will examine is a corpus of scientific articles from PubMed, collected and distributed by the NLM and the [BioASQ](http://bioasq.org/) challenge.
+
+- 14 million abstracts, titles and MeSH (medical subject heading labels)
+- hierarchy of parent to child label headings
