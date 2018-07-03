@@ -63,6 +63,14 @@ background-size: cover
 
 ---
 
+## Capacity and Inductive Biases
+### Learning Curves
+
+![](imgs/learning-curves.png)
+
+---
+
+
 ## Data Scarcity, Non-generalizeable Features
 
 
@@ -147,6 +155,14 @@ $$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=
 
 ---
 
+## Global Graph Embeddings
+### Generalize with Graph Convolutional Networks
+
+![](imgs/glomo-embeddings.png)
+
+
+---
+
 class: center
 background-image: url(https://media.giphy.com/media/falTqLTgSgmas/giphy.gif)
 background-size: cover
@@ -155,3 +171,4 @@ background-size: cover
 
 - [Thanks to my mentor Minjoon Seo!](https://seominjoon.github.io/)
 [`https://github.com/akzaidi/fine-lm`](https://github.com/akzaidi/fine-lm)
+
