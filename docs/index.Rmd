@@ -121,5 +121,5 @@ background-size: cover
 
 # Thanks!
 
-- Thanks to my mentor Minjoon Seo!
+- [Thanks to my mentor Minjoon Seo!](https://seominjoon.github.io/)
 [`https://github.com/akzaidi/fine-lm`](https://github.com/akzaidi/fine-lm)
