@@ -186,9 +186,32 @@ $$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=
 
 ---
 
+
+## Language Unites Us
+
+--
+
+.pull-left[
+
+![](https://pbs.twimg.com/media/DeB_AbtWkAAblXx.jpg)
+
+]
+
+--
+
+.pull-right[
+
+![](https://img00.deviantart.net/bff8/i/2010/311/e/3/love_in_any_language_by_tenaciousdee-d32dzsq.jpg)
+
+]
+
+
+---
+
 class: center
 background-image: url(https://media.giphy.com/media/falTqLTgSgmas/giphy.gif)
 background-size: cover
+
 
 # Thanks!
 
