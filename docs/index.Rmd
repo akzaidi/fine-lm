@@ -41,16 +41,15 @@ class: inverse
 .pull-right[
 
 * Ali Zaidi
-* ![](https://github.com/carlsednaoui/gitsocial/raw/master/assets/icons%20without%20padding/github.png) akzaidi, ![](https://github.com/carlsednaoui/gitsocial/raw/master/assets/icons%20without%20padding/twitter.png) alikzaidi
+* ![](https://github.com/carlsednaoui/gitsocial/raw/master/assets/icons%20without%20padding/github.png) akzaidi, ![](https://github.com/carlsednaoui/gitsocial/raw/master/assets/icons%20without%20padding/twitter.png) alikzaidi, ![](https://i.imgur.com/nn1V2fR.png) sheikhyerbooty
 * From: DC, Ghana, Kyrgyzstan, Pakistan, Toronto, NYC, Bay Area
-* Work: Microsoft (prior: Revolution Analytics, NERA Economic Consulting)
+* Work: Microsoft (prior: Revolution Analytics, NERA)
 * Student: Stanford (prior: University of Toronto)
 * Interests: Food, Music, Stochastic Analysis, Languages, NLP, Reinforcement Learning
 
 ]
 
 --
-
 * Interests for the camp: meeting cool people and learning about you, your favorite music and food, and maybe a few phrases from you native languages!
 * Transfer learning in NLP
 * Multi-task learning in NLP
