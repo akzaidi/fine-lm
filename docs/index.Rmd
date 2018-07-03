@@ -109,6 +109,8 @@ Dataset | Domain | Size (#sentences)
     
 ---
 
+## MQAN Architecture
+
 ![](https://einstein.ai/static/images/pages/research/decaNLP/MQAN.png)
 
 ---
