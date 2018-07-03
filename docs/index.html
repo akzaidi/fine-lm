@@ -30,7 +30,7 @@ class: inverse
 
 .pull-left[
 
-![](http://www.angelfire.com/sd/kreelah/images/STUPENDOUSMAN.JPG)
+![](imgs/stupendousman.jpeg)
 
 ]
 
@@ -107,9 +107,40 @@ Dataset | Domain | Size (#sentences)
 ---
 
 ![](https://einstein.ai/static/images/pages/research/decaNLP/MQAN.png)
-    
+
 ---
 
+## Zero Shot Transfer
+
+- Can we transfer to new tasks with a single or zero examples?
+- If the language model is truly generalizable then single shot or zero shot transfer is possible!
+
+--
+
+![](imgs/openai-zeroshot.png)
+
+---
+    
+
+## Adversarial Alignment 
+
+--
+
+![](imgs/muse-alignment.png)
+
+--
+
+`$$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=-\frac{1}{n}\sum_{i=1}^{n}\log P_{\theta_{\mathcal{D}}}\left({\rm source}=1\vert W_{x_{i}}\right)-\frac{1}{m}\sum_{i=1}^{m}\log P_{\theta_{\mathcal{D}}}\left({\rm source}=0\vert y_{i}\right)$$`
+
+---
+
+## Adversarial Alignment
+
+### Shared English-Russian Embeddings
+
+![](imgs/en-ruski-muse.png)
+
+---
 
 class: center
 background-image: url(https://media.giphy.com/media/falTqLTgSgmas/giphy.gif)
