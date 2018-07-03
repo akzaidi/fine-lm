@@ -91,6 +91,11 @@ Dataset | Domain | Size (#sentences)
 
 ---
 
+background-image: url("https://thumbs.gfycat.com/OrangeSinfulAcornbarnacle-max-14mb.gif")
+background-size: cover
+
+---
+
 ## Recent Approaches
 
 ### Fine-Tuning Language Models
@@ -136,6 +141,7 @@ Dataset | Domain | Size (#sentences)
     
 
 ## Adversarial Alignment 
+### Speak All Languages
 
 --
 
@@ -160,6 +166,12 @@ $$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=
 
 ![](imgs/glomo-embeddings.png)
 
+
+---
+
+## Graph Embeddings for Multi-task Learning for NLP
+
+![](imgs/glomo-architecture.png)
 
 ---
 
