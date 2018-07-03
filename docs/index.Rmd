@@ -7,7 +7,6 @@ output:
   xaringan::moon_reader:
     lib_dir: libs
     css: xaringan-themer.css
-    self_contained: true
     nature:
       highlightStyle: github
       highlightLines: true
@@ -122,4 +121,5 @@ background-size: cover
 
 # Thanks!
 
+- Thanks to my mentor Minjoon Seo!
 [`https://github.com/akzaidi/fine-lm`](https://github.com/akzaidi/fine-lm)
