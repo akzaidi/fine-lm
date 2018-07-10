@@ -13,7 +13,7 @@ In the past few months, a number of techniques utilizing pre-training, generativ
     * **_tldr_**: Train an unsupervised language model using a transformer architecture, and then fine-tune on task-specific datasets.
 2. [fastAI: Universal Language Model Fine-tuning for Text Classification](http://nlp.fast.ai/classification/2018/05/15/introducting-ulmfit.html)
     - [code](https://github.com/fastai/fastai/tree/master/fastai) 
-    * **_tldr_**: Pre-train a language model on generic English corpus (i.e., Wikipedia). Use that to initialize a new language model on your unlabeled domain-specific corpus. Fine-tune / initalize a new domain-specific architecture for text classification.
+    * **_tldr_**: Pre-train a language model on generic English corpus (i.e., Wikipedia). Use that to initialize a new language model on your unlabeled domain-specific corpus. Fine-tune / initialize a new domain-specific architecture for text classification.
 
     ![](imgs/ulmfit.png)
 
