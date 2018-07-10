@@ -18,7 +18,7 @@ ah-ni-yo | no | ah-ni for informalese
 Jeogiyo | call a person | useful when trying to summon or interrupt someone
 nae i-reum -eun ali i(ya) | my name is ali | i if `name[-1]` is consonant else ya
 jae-bal | please | preeease
-geu - rae | okay | okaii is fine too
+geu - rae | okay, i'm down | okaii is fine too
 go-ma-weo | thanks | informal
 ah-ni-ya | you're welcome | double it for kawaiiness
 myeot si-ya | what time is it | chugun myeot si-ya
@@ -42,4 +42,6 @@ chai muku sumida | i ate well | after eating
 chae-so-hamneeda | sorry | formalese
 ga-chan-ayo | no it's fine | formalese, or refuse
 whe-yo | why? | informal
-Gwenchanayo | it's okay | more like kenchin-ayo
+gwenchanayo | it's okay, don't worry | more like kenchin-ayo
+mo-la-yo | i don't nkow | mo-la for informalese
+pork | te-chi-go-gi | more like te-chi-ko-kee
