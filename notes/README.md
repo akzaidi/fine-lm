@@ -1,6 +1,6 @@
 # Notes directory 
 
-## Essential korean
+## Essential hangul
 
 korean | english | notes 
 ---------|----------|---------
