@@ -11,7 +11,7 @@ jal ji-nae | how are you | you doing well? after annyeong
 kam-sa-hamida | thank you | formalese
 jam-si-manyo | excuse me | si -> shi
 jal ja (yo) | good night | informal, (yo) for romantanese
-jal jas-seo | good morning | you sleep well?
+jal jas-seo | good morning | you sleep well? only for use with noori
 joh-eun achim | good morning | more informal
 ne | yes | eung for informalese
 ah-ni-yo | no | ah-ni for informalese
