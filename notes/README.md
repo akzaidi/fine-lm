@@ -47,9 +47,10 @@ whe-yo | why? | informal
 gwenchanayo | it's okay, don't worry | more like kenchin-ayo
 mo-la-yo | i don't nkow | mo-la for informalese
 pork | te-chi-go-gi | more like te-chi-ko-kee
-dae-bak | wow! | 
+dae-bak | wow! | :astonished:
 j-jang | thumbs up | :thumbsup:
 injung | agree (so-des) | no, injong for disagree
 gga-bi | unlucky | or `aship`
 eye-go | sorry | eg., if you hit someone by accident
+yibbe-da | beautiful | 
 
