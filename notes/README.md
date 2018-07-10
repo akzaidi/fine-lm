@@ -1,4 +1,4 @@
-# Hangul
+# Notes directory 
 
 ## Essential korean
 
@@ -13,8 +13,8 @@ jam-si-manyo | excuse me | si -> shi
 jal ja (yo) | good night | informal, (yo) for romantanese
 jal jas-seo | good morning | you sleep well?
 joh-eun achim | good morning | more informal
-eung | yes | o o 
-ah-ni | no |  
+ne | yes | eung for informalese
+ah-ni-yo | no | ah-ni for informalese
 Jeogiyo | call a person | useful when trying to summon or interrupt someone
 nae i-reum -eun ali i(ya) | my name is ali | i if `name[-1]` is consonant else ya
 jae-bal | please | preeease
@@ -42,3 +42,4 @@ chai muku sumida | i ate well | after eating
 chae-so-hamneeda | sorry | formalese
 ga-chan-ayo | no it's fine | formalese, or refuse
 whe-yo | why? | informal
+Gwenchanayo | it's okay | more like kenchin-ayo
