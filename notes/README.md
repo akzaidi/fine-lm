@@ -31,7 +31,9 @@ dang-yeon-ha-ji | of course | also, dangan na ji
 mi-an-hae | sorry | gomenasai, informal; mi-an-hae-yo for slight more formalese (see next)
 jesong-hapnida | my apologies | formal
 wae ? | why | nandeska?
-jin-jja | really | for real?
+jin-jja | really | for real?, more informal: _le-al_
+junn-da | awesome/thrilled 
+hul | un-buh-reverabre | kinda like dae-bak
 i-hae-ga an-ga | don't understand | 
 joah | like it | 
 shi-reo | don't like it | ah-ni shi-reo
@@ -45,3 +47,4 @@ whe-yo | why? | informal
 gwenchanayo | it's okay, don't worry | more like kenchin-ayo
 mo-la-yo | i don't nkow | mo-la for informalese
 pork | te-chi-go-gi | more like te-chi-ko-kee
+dae-bak | wow! | 
