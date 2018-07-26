@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Delayed Impact of Fair Machine Learning</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Ali Zaidi" />
+    <meta name="date" content="2018-07-20" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Delayed Impact of Fair Machine Learning
+## ICML 2018 Paper Discussion
+### Ali Zaidi
+### 2018-07-20
+
+---
+
+
+
+
+
+
+
+background-image: url("imgs/delayed-impact.png")
+background-size: cover
+
+---
+
+# Bias and Fairness in ML
+
+- ML systems trained to minimize prediction error may often exhibit discriminatory behavior based on sensitive characteristics such as race and gender.
+- One reason could be due to historical bias in the data. 
+- In various application domains including lending, hiring, criminal justice, and advertising, ML has been criticized for its potential to harm historically underrepresented or disadvantaged groups.
+- We usually only consider static objects: accuracy, etc.
+- Systems tackling dynamic objectives need to account for the shift in distribution across time
+  * long history of sequential decision theory in statistics (Chernoff, Wald, Wolfowitz)
+  * long history of utility/optimality in economics (Arrow, Kantorovich)
+- Important line of research, as most discussions of impacts of ML/AI are about fears of job displacement or grand claims of unparalelled [increases in productivity](https://www.youtube.com/watch?v=txhAqVez0hI)
+
+---
+
+# Economics and Fairness
+
+- Firms operate _solely_ on a maximum profit strategy:
+
+$$
+\tau_\star = \arg\max\mathcal{U}(\tau)
+$$
+  * may have a constraint (regulation), so `\(\tau\in\mathcal{C}\in[0,1]^{2C}\)`
+  
+- Most firms maximize profits by reaching a point where `\(\text{marginal revenue} = \text{marginal cost}\)`.
+- Assume the availability of a function `\(\Delta: \mathcal{X} \to \mathbb{R}\)` such that `\(\mathcal{\Delta}(x)\)` provides the expected change in score for a selected individual at score `\(x\)`.
+- Authors examine the expected difference in the mean score in group `\(j\in {A,B}\)` that results from an institution's policy, `\(\Delta\mu_j\)`. 
+  * authors review policies/constraints:
+    - _equal opportunity_: `\(TPR_A = TPR_B\)`
+    - _demographic parity_: equal selection rates across all groups, `\(\mathcal{C}=\left\{ \left(\tau_{A},\tau_{B}\right):\sum_{x\in\mathcal{X}}\pi_{A}\left(x\right)\tau_{A}=\sum_{x\in\mathcal{X}}\pi_{B}\left(x\right)\tau_{b}\right\}\)`
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

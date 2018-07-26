@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Improving Multi-lingual Language Understanding Through Contextualized Transfer Learning</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Ali Zaidi" />
+    <meta name="date" content="2018-07-19" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Improving Multi-lingual Language Understanding Through Contextualized Transfer Learning
+## Progress? Sleep-Deprivation, DAMN
+### Ali Zaidi
+### 2018-07-19
+
+---
+
+
+
+
+
+
+# 
+
+&lt;img src="imgs/devil2.png" width="500"&gt;
+
+
+---
+
+
+## Language Models and Baseline NMT Model
+
+1. Trained a Transformer language model on WikiText-103 using 
+1. Baseline Transformer language model for Korean on Sherlock Holmes and other books
+1. Baseline NMT model for KO-EN, using 2017 parallel corpus using 
+    * [Korean English Parallel Corpus](https://sites.google.com/site/koreanparalleldata/)
+        - 96,982 sentence-aligned corpus sentence pairs from the newswire articles collected from the Web (mostly from Yahoo! Korea and Joins CNN during 2010 and 2011
+        
+---
+
+## Unsupervised Neural Machine Translation
+
+`$$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=-\frac{1}{n}\sum_{i=1}^{n}\log P_{\theta_{\mathcal{D}}}\left({\rm source}=1\vert W_{x_{i}}\right)-\frac{1}{m}\sum_{i=1}^{m}\log P_{\theta_{\mathcal{D}}}\left({\rm source}=0\vert y_{i}\right)$$`
+
+![](imgs/lample-noisy-unmt.png)
+
+1. Autoencoder for reconstructing sentences from monolingual pairs
+    - in order to prevent memorization, denoisy autoencoders to add random noise
+1. Cross-domain training: backtranslation of source sentence using shared sentence encoder into target sentence
+    - creates new noisy sentences
+1. Adversarial training: add discriminator aiming to distinguish between input representations 
+1. Korean-Jeju NMT Model:
+  1. [제주어 구술 자료집](http://archive.jst.re.kr/jejustudiesDBList.do?cid=080100): Jeju-eo language dictionaries
+  1. [우리말샘 제주어 표제어 및 예문](https://opendict.korean.go.kr/main): Jeju-eo / Korean headlines
+
+---
+
+# Preliminary Results
+
+---
+
+## Next Steps
+
+- Transfer from language models -&gt; NMT models using shared lexical representation
+    * explicitly contain subword embeddings across many languages (e.g., Japanese)
+    * allow for interpolation for top/common words
+- Train Transformers for all models (hitting some memory issues)
+- Use Naver API for Naver search for evaluation: English/Jeju-eo -&gt; Korean -&gt; English/Jeju-eo
+- Checkpoint tokens with their character index to visualize in TensorBoard
+- MoLE (Mixture of Language Experts): gated network of set of language specific networks: `\(h^{\prime} = \sum^K_k f_k(h) \cdot \text{softmax}(g(h))_k\)`
+- Ablation studies, ensembling
+- (Get away from PyTorch)
+
+---
+
+# Thanks!
+
+- [Thanks to my mentor Minjoon Seo!](https://seominjoon.github.io/)
+- [`https://github.com/akzaidi/fine-lm`](https://github.com/akzaidi/fine-lm)
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
