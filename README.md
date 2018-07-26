@@ -15,7 +15,6 @@ Improving Language Understanding for Low-Resource Languages with Generative Pre-
         - [Lessons Learned](#lessons-learned)
     - [Neural Machine Translation Baselines](#neural-machine-translation-baselines)
         - [Unsupervised Machine Translation](#unsupervised-machine-translation)
-- [Training Data and Evaluation](#training-data-and-evaluation)
     - [Language Model Datasets](#language-model-datasets)
     - [Multi-task Benchmarks for English](#multi-task-benchmarks-for-english)
 - [Acknowledgement](#acknowledgement)
@@ -97,8 +96,6 @@ It took 12 hours to train to 20K steps, reaching a perplexity of 53.2, very clos
 
 Here we replicate the paper [Unsupervised Machine Translation Using Monolingual Corpora Only](https://arxiv.org/abs/1711.00043) using `OpenNMT-tf`. This implementation did not work TPUs, so we instead used 4 V100's for training.
 
-## Training Data and Evaluation
-
 ### Language Model Datasets
 
 - [**English**, Penn Tree Bank Dataset](https://catalog.ldc.upenn.edu/ldc99t42)
@@ -114,6 +111,6 @@ The task-specific dataset we will examine is a corpus of scientific articles fro
 
 ## Acknowledgement
 
-This was supported by [Deep Learning Camp Jeju 2018](http://jeju.dlcamp.org/2018/) which was organized by [TensorFlow Korea User Group](https://facebook.com/groups/TensorFlowKR/). I also would like to thank my wonderful mentor, [Minjoon Seo](https://seominjoon.github.io/) for his advice and inspiration. Lastly, lots of thanks to all my friends that participated on this camp with me!
+This was supported by [Deep Learning Camp Jeju 2018](http://jeju.dlcamp.org/2018/) which was organized by [TensorFlow Korea User Group](https://facebook.com/groups/TensorFlowKR/). I also would like to thank my wonderful mentor, [Minjoon Seo](https://seominjoon.github.io/) for his advice and inspiration. Lastly, lots of thanks to all the awesome participants for making this a super fun experience!
 
 ![](https://cdn-images-1.medium.com/max/2000/1*IfjQyGlgAIo8yCvZwtk4CA.jpeg)

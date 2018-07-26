@@ -1,21 +1,25 @@
-cd ~/Google\ Drive/Conference/jeju/gcloud
+#cd ~/Google\ Drive/Conference/jeju/gcloud
 
+# local start:
 gcloud config set compute/zone us-central1-f
 ./ctpu up
 
+# VM:
+# tmux new -s lmtrain
 STORAGE_BUCKET=gs://alizaidi-tpu-data
-DATA_DIR=$STORAGE_BUCKET/data/wikitext103
-TMP_DIR=/mnt/disks/mnt-dir/t2t_tmp/wikitext103
+DATA_DIR=$STORAGE_BUCKET/data/lm/wikitext103
+TMP_DIR=/mnt/disks/mnt-dir/t2t_tmp/lm/wikitext103
 
-mkdir /mnt/disks/mnt-dir/t2t_tmp/wikitext103
+sudo mkdir -p $TMP_DIR
+sudo chown -R $whoami:$whoami /mnt
 
 gcloud compute tpus list --zone us-central1-f
 TPU_IP=10.240.1.2
 TPU_MASTER=grpc://$TPU_IP:8470
 
-t2t-datagen --problem=languagemodel_lm1b8k_packed --data_dir=$DATA_DIR --tmp_dir=$TMP_DIR
+#t2t-datagen --problem=languagemodel_lm1b8k_packed --data_dir=$DATA_DIR --tmp_dir=$TMP_DIR
 t2t-datagen --problem=languagemodel_wikitext103 --data_dir=$DATA_DIR --tmp_dir=$TMP_DIR
-OUT_DIR=$STORAGE_BUCKET/training/transformer_lang_model/wikitext103
+OUT_DIR=$STORAGE_BUCKET/training/transformer_lang_model/wiki/wikitext103
 
 
 t2t-trainer \
@@ -23,7 +27,7 @@ t2t-trainer \
   --hparams_set=transformer_tpu \
   --problem=languagemodel_wikitext103 \
   --train_steps=100000 \
-  --eval_steps=10 \
+  --eval_steps=1 \
   --data_dir=$DATA_DIR \
   --output_dir=$OUT_DIR \
   --use_tpu=True \
