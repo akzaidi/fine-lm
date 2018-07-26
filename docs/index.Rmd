@@ -19,12 +19,18 @@ options(htmltools.dir.version = FALSE)
 
 ```{r xaringan-themer, include=FALSE}
 library(xaringanthemer)
-mono_accent_inverse(
-  base_color = "#5B88A6",
+mono_accent(
+  base_color = "#607ED1",
   code_font_family = "Fira Code",
-  inverse_header_color = "#000000",
   code_font_url    = "https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css"
 )
+
+# mono_accent_inverse(
+#   base_color = "#5B88A6",
+#   code_font_family = "Fira Code",
+#   inverse_header_color = "#000000",
+#   code_font_url    = "https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css"
+# )
 ```
 
 ## Capacity and Inductive Biases
@@ -207,7 +213,8 @@ $$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=
 library(tidyverse)
 library(hrbrthemes)
 extrafont::loadfonts()
-theme_set(theme_modern_rc(base_size = 36))
+# theme_set(theme_modern_rc(base_size = 36))
+theme_set(theme_ipsum_rc(base_size = 36))
 
 data.frame(df_sample = rep(c(0.2, 0.4, 0.6, 0.8, 1), 2), 
            bleu = c(0.12, 0.21, 0.24, 0.25, 0.31, 
@@ -254,6 +261,7 @@ Ko-LM, Je-Ko_LM | 46.41
 
 background-image: url(https://img00.deviantart.net/2954/i/2012/025/d/8/our_work_is_never_over_by_mydegeneration-d4nkwke.png)
 background-size: cover
+class: inverse
 
 ## Next Steps
 ### Our Work is Never Over
