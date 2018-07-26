@@ -95,6 +95,7 @@ The task-specific dataset we will examine is a corpus of scientific articles fro
 - 14 million abstracts, titles and MeSH (medical subject heading labels)
 - hierarchy of parent to child label headings
 
+
 ## Acknowledgement
 
 This was supported by [Deep Learning Camp Jeju 2018](http://jeju.dlcamp.org/2018/) which was organized by [TensorFlow Korea User Group](https://facebook.com/groups/TensorFlowKR/). I also would like to thank my wonderful mentor, [Minjoon Seo](https://seominjoon.github.io/) for his advice and inspiration. Lastly, lots of thanks to all my friends that participated on this camp with me!
