@@ -70,7 +70,7 @@ Our experiments start with training language models for a variety of datasets. O
 
 #### Language Model Training with Tensor2Tensor
 
-We utilized the [Wikipedia long term dependency dataset](https://einstein.ai/research/the-wikitext-long-term-dependency-language-modeling-dataset) curated by [Stephen Merity](https://twitter.com/Smerity/), which has a vocabulary of 103M tokens in the training set. We used the `Tensor2Tensor` library to train this model, the details of which are summarized in [`wikitext103-lm`]().
+We utilized the [Wikipedia long term dependency dataset](https://einstein.ai/research/the-wikitext-long-term-dependency-language-modeling-dataset) curated by [Stephen Merity](https://twitter.com/Smerity/), which has a vocabulary of 103M tokens in the training set. We used the `Tensor2Tensor` library to train this model, the details of which are summarized in [`wikitext103-lm`](https://github.com/akzaidi/fine-lm/tree/presentation/src#language-model-training-with-tensor2tensor).
 
 
 #### Lessons Learned
@@ -94,7 +94,6 @@ The task-specific dataset we will examine is a corpus of scientific articles fro
 
 - 14 million abstracts, titles and MeSH (medical subject heading labels)
 - hierarchy of parent to child label headings
-
 
 ## Acknowledgement
 
