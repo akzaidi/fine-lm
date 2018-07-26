@@ -10,6 +10,51 @@ The first task we examine is language model training using [Transformer](https:/
 
 ### Training on TPUs
 
+I used the [`ctpu`](https://cloud.google.com/tpu/docs/quickstart) utility for launching and accessing TPUs. The script I used is saved in [gcloud-ctpu-startup.sh](scripts/gcloud-ctpu-startup.sh). 
+
+You can use `ctpu` directly from the google cloud shell or install it from [source](https://github.com/tensorflow/tpu/tree/master/tools/ctpu), which works on Linux, macOS and WSL.
+
+Set your appropriate region and start a VM.
+
+```bash
+gcloud config set compute/zone us-central1-f
+./ctpu up
+```
+
+This will automatically SSH you into your host VM (this is not the TPU VM, which you cannot access directly).
+
+Create a bucket and save some variables to access. You'll also need temporary storage on your host VM.
+
+```bash
+STORAGE_BUCKET=gs://alizaidi-tpu-data
+DATA_DIR=$STORAGE_BUCKET/data/wikitext
+TMP_DIR=/mnt/disks/mnt-dir/t2t_tmp/wikitext
+mkdir /mnt/disks/mnt-dir/t2t_tmp
+```
+
+Examine your TPU's entry points.
+
+```bash
+gcloud compute tpus list --zone us-central1-f
+```
+
+Next we set up our connection strings to our TPU server:
+
+
+```bash
+gcloud compute tpus list --zone us-central1-f
+TPU_IP=10.240.1.2
+TPU_MASTER=grpc://$TPU_IP:8470
+```
+
+Use the data generator and language model specification for the [Wikitext-103 dataset](https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/data_generators/wikitext103.py):
+
+```bash
+t2t-datagen --problem=languagemodel_wikitext103 --data_dir=$DATA_DIR --tmp_dir=$TMP_DIR
+OUT_DIR=$STORAGE_BUCKET/training/transformer_lang_model/wikitext/
+```
+
+
 
 #### Useful Resources about Using TPUs for Training with the `Tensor2Tensor` library
 
