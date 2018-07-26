@@ -23,7 +23,7 @@ t2t-trainer \
   --hparams_set=transformer_tpu \
   --problem=languagemodel_wikitext103 \
   --train_steps=100000 \
-  --eval_steps=8 \
+  --eval_steps=10 \
   --data_dir=$DATA_DIR \
   --output_dir=$OUT_DIR \
   --use_tpu=True \
