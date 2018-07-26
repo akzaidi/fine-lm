@@ -203,7 +203,7 @@ $$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=
 
 ## Improved Initializations
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.width=11}
+```{r learncurves-nmt, echo=FALSE, message=FALSE, warning=FALSE, fig.width=11}
 library(tidyverse)
 library(hrbrthemes)
 extrafont::loadfonts()
@@ -219,8 +219,7 @@ data.frame(df_sample = rep(c(0.2, 0.4, 0.6, 0.8, 1), 2),
   geom_smooth() + 
   labs(title = "NMT Scores for English-Korean",
        subtitle = "Random Initialization vs Pre-Trained LM",
-       x = "percentage of labeled data used",
-       caption = "Transformer-based Langauge Models") + 
+       x = "percentage of labeled data used") + 
   theme(axis.title = element_text(size=24),
         axis.title.x = element_text(size=24),
         axis.title.y = element_text(size=24),
