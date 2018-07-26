@@ -61,9 +61,9 @@ mono_accent(
 
 background-image: url("https://thumbs.gfycat.com/OrangeSinfulAcornbarnacle-max-14mb.gif")
 background-size: cover
-class: invers
+class: inverse
 
->You can't cram the meaning of a whole %&!$ing sentence into a single $&!*ing vector!
+### You can't cram the meaning of a whole %&!$ing sentence into a single $&!*ing vector!
 
 Ray Mooney
 
