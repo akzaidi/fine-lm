@@ -4,8 +4,8 @@ gcloud config set compute/zone us-central1-f
 ./ctpu up
 
 STORAGE_BUCKET=gs://alizaidi-tpu-data
-DATA_DIR=$STORAGE_BUCKET/data/
-TMP_DIR=/mnt/disks/mnt-dir/t2t_tmp
+DATA_DIR=$STORAGE_BUCKET/data/wikitext
+TMP_DIR=/mnt/disks/mnt-dir/t2t_tmp/wikitext
 
 mkdir /mnt/disks/mnt-dir/t2t_tmp
 
@@ -14,6 +14,7 @@ TPU_IP=10.240.1.2
 TPU_MASTER=grpc://$TPU_IP:8470
 
 t2t-datagen --problem=languagemodel_lm1b8k_packed --data_dir=$DATA_DIR --tmp_dir=$TMP_DIR
+t2t-datagen --problem=LanguagemodelWikitext103 --data_dir=$DATA_DIR --tmp_dir=$TMP_DIR
 OUT_DIR=$STORAGE_BUCKET/training/transformer_lang_model/autotune
 
 
