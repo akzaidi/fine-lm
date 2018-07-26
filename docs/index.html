@@ -114,6 +114,28 @@ $$
     &lt;img src="imgs/commonsense.png" height="250"&gt;
     
 
+
+---
+
+## Transformer Training on TPUs
+### Pre-Trained Language Models
+
+* Implementation in `tensor2tensor`:
+* Define `data_generator` for source data to `tensor2tensor/data_generator`
+    - decorate with `@registry.register_problem`
+    - annotate necessary methods, i.e., `approx_vocab`
+* Add it to `all_problems.py` list in `tensor2tensor` library
+* Language model on wikitext-103: took ~12 hours on TPU to attain perplexity of 53.2, very close to the [SOTA reported perplexity](https://arxiv.org/pdf/1708.02182.pdf)
+
+
+Language | Dataset | Perplexity
+---------|----------|---------
+ English | wikitext-103 | 53.2
+ Russian | Lenta.ru + ru.wiki | 35.4
+ Korean | ko.wiki | 48.3
+ Jeju-eo | dictionary + oral conversation | 31.4
+ 
+ 
 ---
 
 ## Unsupervised Neural Machine Translation
@@ -167,17 +189,36 @@ $$
 
 ---
 
-## Transformer Training on TPUs
+## Initializing Machine Translation with Pre-Trained Encoder Decoder
+
+* Rather than starting from random weights, initialize NMT system with LM encoder and decoder of source and target language respectively
+
+![](imgs/init-enc-dec-nmt.png)
+
+---
+
+## Improved Initializations
+
+![](index_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
 
 
-* Implementation in `tensor2tensor`:
-* Define `data_generator` for source data to `tensor2tensor/data_generator`
-    - decorate with `@registry.register_problem`
-    - annotate necessary methods, i.e., `approx_vocab`
-* Add it to `all_problems.py` list in `tensor2tensor` library
-* Language model on wikitext-103: took ~12 hours on TPU to attain perplexity of 53.2, very close to the [SOTA reported perplexity](https://arxiv.org/pdf/1708.02182.pdf)
+---
 
+background-image: url(https://img00.deviantart.net/2954/i/2012/025/d/8/our_work_is_never_over_by_mydegeneration-d4nkwke.png)
+background-size: cover
 
+## Next Steps
+### Our Work is Never Over
+
+* Release all models!
+* Encoder Alignment
+    - interpolation
+    - improvement with multiple encoders
+* Transfer learning for discriminative tasks
+    - multi-lingual NLP decathlon
+* Train on diverse datasets
+    - conversational data, i.e., `namu.wiki`
+* Examine performance of Universal Transformer
 
 ---
 
