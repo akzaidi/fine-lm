@@ -1,6 +1,6 @@
 ---
-title: "Improving Multi-lingual Language Understanding Through Contextualized Transfer Learning"
-subtitle: "Towards Unsupervised Machine Translation"  
+title: "Improving Language Understanding for Low-Resource Languages with Generative Pre-Training"
+subtitle: "Deep Learning Camp Jeju 2018"  
 author: "Ali Zaidi"
 date: '`r Sys.Date()`'
 output:
@@ -27,50 +27,40 @@ mono_accent_inverse(
 )
 ```
 
-class: inverse
-
-
-## whoami
-
-.pull-left[
-
-![](imgs/stupendousman.jpeg)
-
-]
-
-.pull-right[
-
-* Ali Zaidi
-* ![](https://github.com/carlsednaoui/gitsocial/raw/master/assets/icons%20without%20padding/github.png) akzaidi, ![](https://github.com/carlsednaoui/gitsocial/raw/master/assets/icons%20without%20padding/twitter.png) alikzaidi, ![](https://i.imgur.com/nn1V2fR.png) sheikhyerbooty
-* From: DC, Ghana, Kyrgyzstan, Pakistan, Toronto, NYC, Bay Area
-* Work: Microsoft (prior: Revolution Analytics, NERA)
-* Student: Stanford (prior: University of Toronto)
-* Interests: Food, Music, Stochastic Analysis, Languages, NLP, Reinforcement Learning
-
-]
-
---
-* Interests for the camp: meeting cool people and learning about you, your favorite music and food, and maybe a few phrases from you native languages!
-* Transfer learning in NLP
-* Multi-task learning in NLP
-* Structured prediction models: semantic indexing, relation extraction
-* Grounded language learning in Minecraft
-
----
-
-background-image: url("https://media.giphy.com/media/1M9fmo1WAFVK0/giphy.gif")
-background-size: cover
-
----
-
-
 ## Capacity and Inductive Biases
-### Learning Curves
+### Learning Curves: Learning from Experience
 
 ![](imgs/learning-curves.png)
 
 ---
 
+## Pre-Training and Knowledge Sharing
+### Success in Vision from Pre-Trained Models
+
+--
+
+<img src="imgs/distill-vis.png" height="250">
+
+--
+
+* In CV, combination of ImageNet and CNNs has been a big success
+    - enabled highly performant models
+    - better understanding of the models
+    - more inspired from how perception/vision may work
+* NLP:
+    - still stuck on word embeddings
+    - single-task models
+
+---
+
+background-image: url("https://thumbs.gfycat.com/OrangeSinfulAcornbarnacle-max-14mb.gif")
+background-size: cover
+
+>You can't cram the meaning of a whole %&!$ing sentence into a single $&!*ing vector!
+
+Ray Mooney
+
+---
 
 ## Data Scarcity, Non-generalizeable Features
 
@@ -84,24 +74,30 @@ Dataset | Domain | Size (#sentences)
  SNLI | Entailment | 570K
  SST | Sentiment | 10K
 
+--
+
 - Most SOTA NLP results are obtained by training end-to-end architectures for each language task. 
 - Most datasets are in English, and are very small.
-- I'd like examine how transformer models and convolutional modules such as QANet can be used as generative language models
-- Can we fine-tune these language models for text classification and multi-task problems? 
-- Is the combination of transformer/convolutional architectures + structured prediction models an effective representation for multi-lingual transfer learning?
+- Not much knowledge sharing, or re-use
+- Single task learning inhibits us from general language understanding, and exposes us to learning overly discriminative features that generalize poorly
+
 
 ---
 
-background-image: url("https://thumbs.gfycat.com/OrangeSinfulAcornbarnacle-max-14mb.gif")
-background-size: cover
+## Representations of Language
+### Language Modeling
 
->You can't cram the meaning of a whole %&!$ing sentence into a single $&!*ing vector!
+* **Goal**:  predict the next word given the preceding words
 
-Ray Mooney
+* Given a sequence of words $x^{(1)}, x^{(2)},\ldots,x^{(t)}$, compute the CPD:
+
+$$
+\mathbb{P}\left(x^{(t+1)}=w_j \vert x^{(t)},\ldots,x^{(1)}\right)
+$$
 
 ---
 
-## Recent Approaches
+## Literature Review
 
 ### Fine-Tuning Language Models
 
@@ -113,40 +109,18 @@ Ray Mooney
 
 ---
 
-## Recent Approaches
+## Generative Language Modeling Helps
 
-### Comprehension Models and Multi-task Networks
+### Common Sense Reasoning
 
-3. [Google Brain: QANet: Combining Local Convolution with Global Self-Attention for Reading Comprehension](https://arxiv.org/pdf/1804.09541.pdf)
-    - **_tldr_**: Transformer based Q&A model consisting solely of convolutions and self-attentions.
-4. [AllenAI: Deep Contextualized Word Vectors](https://arxiv.org/abs/1802.05365)
-    - **_tldr_**: Train a generic language model using Bidirectional-LSTM and iteratively fine-tune contextual vectors.
-5. [Salesforce Research, The Natural Language Decathlon](https://einstein.ai/research/the-natural-language-decathlon)
-    - **_tldr_**: Challenge consisting of ten NLP tasks. Proposed MQAN: bidirectional LSTM, dual coattention, + additional two BiLSTMs + self-attention.
+3. [Trieu H. Trinh & Quoc Le: A Simple Method for Commonsense Reasoning](https://arxiv.org/abs/1806.02847)
+    - **__tldr__**: Solve multiple choice questions from _Pronoun Disambiguation Challenge_ and _Winograd Schema Challenge_ by pre-training many language models (diversity helps!), substitute question in sentence, pick one with highest likelihood on the LMs (using ensembling).
+    <img src="imgs/commonsense.png" height="250">
     
-    
----
-
-## MQAN Architecture
-
-![](https://einstein.ai/static/images/pages/research/decaNLP/MQAN.png)
 
 ---
 
-## Zero Shot Transfer
-
-- Can we transfer to new tasks with a single or zero examples?
-- If the language model is truly generalizable then single shot or zero shot transfer is possible!
-
---
-
-![](imgs/openai-zeroshot.png)
-
----
-    
-
-## Adversarial Alignment 
-### Speak All Languages
+## Adversarial Alignment of Embedding and Sentence Encoders 
 
 --
 
@@ -158,63 +132,57 @@ $$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=
 
 ---
 
-## Learn All Languages
-
-![](https://media.giphy.com/media/7NuOsHWsC7wIM/giphy.gif)
-
----
-
 ## Adversarial Alignment
 
 ### Shared English-Russian Embeddings
 
-![](imgs/en-ruski-muse.png)
-
----
-
-## Global Graph Embeddings
-### Generalize with Graph Convolutional Networks
-
-![](imgs/glomo-embeddings.png)
+<img src="imgs/en-ruski-muse.png" height="450">
 
 
 ---
 
-## Graph Embeddings for Multi-task Learning for NLP
+## Pre-Trained Transformers
 
-![](imgs/glomo-architecture.png)
+### Initializing for NMT
 
----
-
-
-## Language Unites Us
-
---
-
-.pull-left[
-
-![](https://pbs.twimg.com/media/DeB_AbtWkAAblXx.jpg)
-
-]
-
---
-
-.pull-right[
-
-![](https://img00.deviantart.net/bff8/i/2010/311/e/3/love_in_any_language_by_tenaciousdee-d32dzsq.jpg)
-
-]
 
 
 ---
 
 class: center
-background-image: url(https://media.giphy.com/media/falTqLTgSgmas/giphy.gif)
+background-image: url(https://cdn-images-1.medium.com/max/2000/1*IfjQyGlgAIo8yCvZwtk4CA.jpeg)
 background-size: cover
 
 
 # Thanks!
 
-- [Thanks to my mentor Minjoon Seo!](https://seominjoon.github.io/)
-[`https://github.com/akzaidi/fine-lm`](https://github.com/akzaidi/fine-lm)
+<p><font size="4" color="black">Thanks to TF Korea, the Oh S crew, all the wonderful organizers and mentors ♥Bitnoori, SangJin, Terry, Soonson, Wonchang, Eric!!</font></p>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<p><font size="5" color="white">Thanks to my mentor Minjoon Seo!</font></p>
+
+<p><font face="monospace" color="white">github.com/akzaidi/fine-lm</font></p>
+
+
+
+---
+
+
+class: center
+background-image: url(imgs/dljejupz.gif)
+background-size: cover
+
+<p><font size="5" color="black">고맙습니다,다음에 봐! </font></p>
+<p><font size="5" color="red">잘 잤어 &#x1f48b; </font></p>
