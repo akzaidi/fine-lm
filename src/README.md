@@ -7,6 +7,7 @@ Source Scripts
 
 - [Language Model Training with `Tensor2Tensor`](#language-model-training-with-tensor2tensor)
     - [Training on TPUs](#training-on-tpus)
+        - [Monitoring Progress with Tensorboard](#monitoring-progress-with-tensorboard)
         - [Useful Resources about Using TPUs for Training with the `Tensor2Tensor` library](#useful-resources-about-using-tpus-for-training-with-the-tensor2tensor-library)
         - [Useful Tips about the Transformer Architecture](#useful-tips-about-the-transformer-architecture)
 
@@ -16,7 +17,7 @@ Source Scripts
 
 There are various scripts here that are used for training the models and running the experiments. I'll try to keep this updated with latest instructions.
 
-## Language Model Training with `Tensor2Tensor`
+# Language Model Training with `Tensor2Tensor`
 
 The first task we examine is language model training using [Transformer](https://arxiv.org/abs/1706.03762) models. Some useful resources on Transformers:
 
@@ -27,7 +28,7 @@ The first task we examine is language model training using [Transformer](https:/
 	* [annotated transformer on colab](https://colab.research.google.com/github/tensorflow/tensor2tensor/blob/master/tensor2tensor/notebooks/hello_t2t.ipynb)
 - [illustrated transformer](https://jalammar.github.io/illustrated-transformer/)
 
-### Training on TPUs
+## Training on TPUs
 
 I used the [`ctpu`](https://cloud.google.com/tpu/docs/quickstart) utility for launching and accessing TPUs. The script I used is saved in [gcloud-ctpu-startup.sh](scripts/gcloud-ctpu-startup.sh). 
 
@@ -90,15 +91,30 @@ t2t-trainer \
   --master=$TPU_MASTER
 ```
 
+### Monitoring Progress with Tensorboard
 
-#### Useful Resources about Using TPUs for Training with the `Tensor2Tensor` library
+Open up port 6006:
+
+```bash
+gcloud compute firewall-rules create tensorboard-port --allow tcp:6006
+```
+
+Launch tensorboard:
+
+```bash
+tensorboard --logdir=$OUT_DIR
+```
+
+Navigate to your external IP address and port 6006. You can find your external IP address by printing `gcloud compute instances list`.
+
+### Useful Resources about Using TPUs for Training with the `Tensor2Tensor` library
 
 - [tensor2tensor/cloud_tpu.md](https://github.com/tensorflow/tensor2tensor/blob/master/docs/cloud_tpu.md)
 - Eyal Gruss has summarized his experiences with the [rough guide to running transformer on TPU](https://github.com/eyaler/transformer_tpu) that is a very good read.
 - [tf estimator on tpu](https://cloud.google.com/tpu/docs/using-estimator-api)
 - [Chris Young: ImageNet is the new MNIST](https://supercomputersfordl2017.github.io/Presentations/ImageNetNewMNIST.pdf) 
 
-#### Useful Tips about the Transformer Architecture
+### Useful Tips about the Transformer Architecture
 
 1. [Popel et. al - Training tips for the transformer model](https://arxiv.org/pdf/1804.00247.pdf)
     - warm-up scheme: increase learning rate by $\sqrt{(\text{number of gpus})}$
