@@ -172,7 +172,7 @@ $$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=
 ---
 
 ## Transformer Training on TPUs
-
+### Pre-Trained Language Models
 
 * Implementation in `tensor2tensor`:
 * Define `data_generator` for source data to `tensor2tensor/data_generator`
@@ -182,6 +182,12 @@ $$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=
 * Language model on wikitext-103: took ~12 hours on TPU to attain perplexity of 53.2, very close to the [SOTA reported perplexity](https://arxiv.org/pdf/1708.02182.pdf)
 
 
+Language | Dataset | Perplexity
+---------|----------|---------
+ English | wikitext-103 | 53.2
+ Russian | Lenta.ru + ru.wiki | 35.4
+ Korean | ko.wiki | 48.3
+ Jeju-eo | dictionary + oral conversation | 31.4
 
 ---
 
