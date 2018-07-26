@@ -1,5 +1,18 @@
 Source Scripts
 ===================
+<details>
+<summary><strong><em>Table of Contents</em></strong></summary>
+
+<!-- TOC -->
+
+- [Language Model Training with `Tensor2Tensor`](#language-model-training-with-tensor2tensor)
+    - [Training on TPUs](#training-on-tpus)
+        - [Useful Resources about Using TPUs for Training with the `Tensor2Tensor` library](#useful-resources-about-using-tpus-for-training-with-the-tensor2tensor-library)
+        - [Useful Tips about the Transformer Architecture](#useful-tips-about-the-transformer-architecture)
+
+<!-- /TOC -->
+
+</details>
 
 There are various scripts here that are used for training the models and running the experiments. I'll try to keep this updated with latest instructions.
 
@@ -7,6 +20,12 @@ There are various scripts here that are used for training the models and running
 
 The first task we examine is language model training using [Transformer](https://arxiv.org/abs/1706.03762) models. Some useful resources on Transformers:
 
+- [Training tips for transformer model](https://arxiv.org/pdf/1804.00247.pdf)
+	* tips from using transformer for NMT Czesh <-> English
+- [Harvard NLP review of transformer](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
+	* [repo](https://github.com/harvardnlp/annotated-transformer)
+	* [annotated transformer on colab](https://colab.research.google.com/github/tensorflow/tensor2tensor/blob/master/tensor2tensor/notebooks/hello_t2t.ipynb)
+- [illustrated transformer](https://jalammar.github.io/illustrated-transformer/)
 
 ### Training on TPUs
 
@@ -20,6 +39,8 @@ Set your appropriate region and start a VM.
 gcloud config set compute/zone us-central1-f
 ./ctpu up
 ```
+
+Since training can take a long time, I used `tmux` to start my session. You can find my [dotfiles online](https://github.com/akzaidi/etc/tree/master/dotfiles).
 
 This will automatically SSH you into your host VM (this is not the TPU VM, which you cannot access directly).
 
@@ -54,6 +75,20 @@ t2t-datagen --problem=languagemodel_wikitext103 --data_dir=$DATA_DIR --tmp_dir=$
 OUT_DIR=$STORAGE_BUCKET/training/transformer_lang_model/wikitext/
 ```
 
+Train:
+
+```bash
+t2t-trainer \
+  --model=transformer \
+  --hparams_set=transformer_tpu \
+  --problem=languagemodel_wikitext103 \
+  --train_steps=100000 \
+  --eval_steps=8 \
+  --data_dir=$DATA_DIR \
+  --output_dir=$OUT_DIR \
+  --use_tpu=True \
+  --master=$TPU_MASTER
+```
 
 
 #### Useful Resources about Using TPUs for Training with the `Tensor2Tensor` library
