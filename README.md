@@ -6,6 +6,7 @@ Improving Language Understanding for Low-Resource Languages with Generative Pre-
 
 <!-- TOC -->
 
+- [Author](#author)
 - [Overview](#overview)
     - [Research Overview](#research-overview)
 - [Experiments](#experiments)
@@ -13,6 +14,7 @@ Improving Language Understanding for Low-Resource Languages with Generative Pre-
         - [Language Model Training with Tensor2Tensor](#language-model-training-with-tensor2tensor)
         - [Lessons Learned](#lessons-learned)
     - [Neural Machine Translation Baselines](#neural-machine-translation-baselines)
+        - [Unsupervised Machine Translation](#unsupervised-machine-translation)
 - [Training Data and Evaluation](#training-data-and-evaluation)
     - [Language Model Datasets](#language-model-datasets)
     - [Multi-task Benchmarks for English](#multi-task-benchmarks-for-english)
@@ -21,6 +23,12 @@ Improving Language Understanding for Low-Resource Languages with Generative Pre-
 <!-- /TOC -->
 
 </details>
+
+This project is still under construction and will continue to see breaking changes.
+
+## Author
+
+Ali Zaidi
 
 ## Overview
 
@@ -75,10 +83,19 @@ We utilized the [Wikipedia long term dependency dataset](https://einstein.ai/res
 
 #### Lessons Learned
 
+Training on TPUs can provide significant benefits in terms of training speed. The Transformer model is devoid of any significant recurrent operations, so there is an optimized implementation in the `tensor2tensor` library that can utilize TPUs. Other types of language models, such as bidirectional LSTMs with attention have ops that are not yet available on TPUs. 
+
+TPUs do not yet support `cloud_ml` based hyperparameter search, so you'll have to revert to GPUs for their usage. Multiple TPUs for single model training is also not supported.
+
+It took 12 hours to train to 20K steps, reaching a perplexity of 53.2, very close to the [SOTA reported perplexity](https://arxiv.org/pdf/1708.02182.pdf) for this dataset.
+
+**TODO**: Try out the [universal transformer](https://github.com/tensorflow/tensor2tensor/blob/master/tensor2tensor/models/research/universal_transformer.py).
+
 ### Neural Machine Translation Baselines
 
+#### Unsupervised Machine Translation
 
-
+Here we replicate the paper [Unsupervised Machine Translation Using Monolingual Corpora Only](https://arxiv.org/abs/1711.00043) using `OpenNMT-tf`. This implementation did not work TPUs, so we instead used 4 V100's for training.
 
 ## Training Data and Evaluation
 
