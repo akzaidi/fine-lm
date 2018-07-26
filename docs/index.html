@@ -204,6 +204,27 @@ Language | Dataset | Perplexity
 
 ---
 
+## Low-Resource NMT
+### Semi-Supervised NMT
+
+* As a second experiment, we examine translation into the low-resource language of [Jeju-eo](https://en.wikipedia.org/wiki/Jeju_language)
+* Can be considered a dialect of Korean but is significantly different
+* According to the UNESCO Atlas of the World's Endangered Languages, Jejeueo is critically endangered
+    - Only 5,000-10,000 people speak the Jeju language
+    - All current speakers &gt; 70–75 years of age
+    - No teaching mechanism for the youth
+* Utilize Jeju-eo oral stories translated by library 
+
+--
+
+Initialization | Ko-Je BLEU
+---------|----------
+None | 30.89
+Ko-LM, Je-RW | 44.31
+Ko-LM, Je-Ko_LM | 46.41
+
+---
+
 background-image: url(https://img00.deviantart.net/2954/i/2012/025/d/8/our_work_is_never_over_by_mydegeneration-d4nkwke.png)
 background-size: cover
 
@@ -214,6 +235,11 @@ background-size: cover
 * Encoder Alignment
     - interpolation
     - improvement with multiple encoders
+* Multi-way NMT
+    - e.g., Jeju-eo incorporates words from Japanese, Chinese and Mongolion
+* Ablation studies
+    - comparisons against Bi-LSTMs
+    - various tokenizers sub-word encoders
 * Transfer learning for discriminative tasks
     - multi-lingual NLP decathlon
 * Train on diverse datasets
