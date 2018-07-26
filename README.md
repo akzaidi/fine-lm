@@ -1,4 +1,4 @@
-Improving Language Understanding for Low-Resource Languages with Generative Pre-Training
+Improving Language Understanding for Low-Resource Languages and Tasks with Generative Pre-Training
 ===============================================
 
 <details>
