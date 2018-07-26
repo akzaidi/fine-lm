@@ -1,0 +1,64 @@
+---
+title: "Delayed Impact of Fair Machine Learning"
+subtitle: "ICML 2018 Paper Discussion"  
+author: "Ali Zaidi"
+date: '`r Sys.Date()`'
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+mono_accent_inverse(
+  base_color = "#5B88A6",
+  code_font_family = "Fira Code",
+  inverse_header_color = "#000000",
+  code_font_url    = "https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css"
+)
+```
+
+
+background-image: url("imgs/delayed-impact.png")
+background-size: cover
+
+---
+
+# Bias and Fairness in ML
+
+- ML systems trained to minimize prediction error may often exhibit discriminatory behavior based on sensitive characteristics such as race and gender.
+- One reason could be due to historical bias in the data. 
+- In various application domains including lending, hiring, criminal justice, and advertising, ML has been criticized for its potential to harm historically underrepresented or disadvantaged groups.
+- We usually only consider static objects: accuracy, etc.
+- Systems tackling dynamic objectives need to account for the shift in distribution across time
+  * long history of sequential decision theory in statistics (Chernoff, Wald, Wolfowitz)
+  * long history of utility/optimality in economics (Arrow, Kantorovich)
+- Important line of research, as most discussions of impacts of ML/AI are about fears of job displacement or grand claims of unparalelled [increases in productivity](https://www.youtube.com/watch?v=txhAqVez0hI)
+
+---
+
+# Economics and Fairness
+
+- Firms operate _solely_ on a maximum profit strategy:
+
+$$
+\tau_\star = \arg\max\mathcal{U}(\tau)
+$$
+  * may have a constraint (regulation), so $\tau\in\mathcal{C}\in[0,1]^{2C}$
+  
+- Most firms maximize profits by reaching a point where $\text{marginal revenue} = \text{marginal cost}$.
+- Assume the availability of a function $\Delta: \mathcal{X} \to \mathbb{R}$ such that $\mathcal{\Delta}(x)$ provides the expected change in score for a selected individual at score $x$.
+- Authors examine the expected difference in the mean score in group $j\in {A,B}$ that results from an institution's policy, $\Delta\mu_j$. 
+  * authors review policies/constraints:
+    - _equal opportunity_: $TPR_A = TPR_B$
+    - _demographic parity_: equal selection rates across all groups, $\mathcal{C}=\left\{ \left(\tau_{A},\tau_{B}\right):\sum_{x\in\mathcal{X}}\pi_{A}\left(x\right)\tau_{A}=\sum_{x\in\mathcal{X}}\pi_{B}\left(x\right)\tau_{b}\right\}$
+- Authors examine negative feedback loops: policies might exaceberate the issue rather than help
