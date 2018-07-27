@@ -60,7 +60,7 @@ Ray Mooney
 ---
 
 ## Data Scarcity, Non-generalizeable Features
-
+### What's the Canonical Task in NLU?
 
 Dataset | Domain | Size (#sentences)
 ---------|----------|---------
@@ -91,6 +91,13 @@ Dataset | Domain | Size (#sentences)
 $$
 \mathbb{P}\left(x^{(t+1)}=w_j \vert x^{(t)},\ldots,x^{(1)}\right)
 $$
+
+--
+
+* Completely unsupervised / self-supervised
+* Can leverage large unlabeled corpora, like Wikipedia, news, twitter, etc.
+* _Might_ just be the canonical task for NLU, e.g., [Language Modeling Teaches You More than Translation Does: Lessons Learned Through Auxiliary Task Analysis, 2018](https://openreview.net/forum?id=BJeYYeaVJ7)
+    - Others feel like it's probably [NMT, McCann et. al 2017, Learned in Translation](https://arxiv.org/abs/1708.00107), dialogue, [Q&amp;A, McCann et. al 2018](https://arxiv.org/abs/1708.00107)
 
 ---
 
@@ -140,7 +147,7 @@ Language | Dataset | Perplexity
 ---
 
 ## Unsupervised Neural Machine Translation
-## Adversarial Alignment of Embedding and Sentence Encoders 
+### Adversarial Alignment of Embedding and Sentence Encoders 
 
 --
 
