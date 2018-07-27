@@ -259,11 +259,25 @@ data.frame(df_sample = rep(c(0.2, 0.4, 0.6, 0.8, 1), 2),
 
 --
 
+.pull-left[
+
 Initialization | Ko-Je BLEU
 ---------|----------
 None | 30.89
 Ko-LM, Je-RW | 44.31
 Ko-LM, Je-Ko_LM | 46.41
+
+
+]
+
+
+.pull-right[
+
+KOREAN: 아이들한테 함부로 잔소리하지 마라.
+
+JEJUEO: 아이덜한테 함부로 흔다니하지 마라.
+
+]
 
 ---
 
