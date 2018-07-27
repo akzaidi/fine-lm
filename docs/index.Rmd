@@ -320,4 +320,4 @@ background-image: url(imgs/dljejupz.gif)
 background-size: cover
 
 <p><font size="7" color="black">고맙습니다. 다음에 봐! </font></p>
-<p><font size="7" color="red">잘 잤어 &#x1f48b; </font></p>
+<p><font size="7" color="red">잘자요 &#x1f48b; </font></p>
