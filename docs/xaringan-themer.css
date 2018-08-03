@@ -19,7 +19,7 @@
 @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 @import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
-@import url(xaringan-themer.css);
+
 
 body {
   font-family: 'Droid Serif', 'Palatino Linotype', 'Book Antiqua', Palatino, 'Microsoft YaHei', 'Songti SC', serif;
@@ -63,7 +63,7 @@ h1, h2, h3 {
 .remark-slide-number {
   color: #607ED1;
   opacity: 1;
-  text-size: 0.9em;
+  font-size: 0.9em;
 }
 strong{color:#607ED1;}
 a, a > code {
@@ -135,14 +135,14 @@ blockquote {
   border-left: solid 5px #607ED180;
   padding-left: 1em;
 }
-table {
+.remark-slide table {
   margin: auto;
   border-top: 1px solid #666;
   border-bottom: 1px solid #666;
 }
-table thead th { border-bottom: 1px solid #ddd; }
+.remark-slide table thead th { border-bottom: 1px solid #ddd; }
 th, td { padding: 5px; }
-thead, tfoot, tr:nth-child(even) { background: #CFD8F1 }
+.remark-slide thead, .remark-slide tfoot, .remark-slide tr:nth-child(even) { background: #CFD8F1 }
 table.dataTable tbody {
   background-color: #FFFFFF;
   color: #272822;

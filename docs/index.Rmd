@@ -45,17 +45,17 @@ mono_accent(
 
 --
 
-<img src="imgs/distill-vis.png" height="250">
+<img src="imgs/distill-vis.png" height="225">
 
 --
 
-* In CV, combination of ImageNet and CNNs has been a big success
-    - enabled highly performant models
-    - better understanding of the models
-    - more inspired from how perception/vision may work
+* CV: combination of ImageNet and CNNs has been a big success
+    - enabled highly performant models plus better understanding
+    - good inductive bias, the right canonical task, somewhat inspired by how perception/vision works in humans
 * NLP:
     - still stuck on word embeddings
     - single-task models
+    - not sure what the _canonical_ NLP task is, nor how to properly encode our inductive bias for language
 
 ---
 
@@ -111,7 +111,35 @@ $$
 
 ---
 
-## Literature Review
+## Transformer Language Models
+### The Good, the Bad, and the Ugly
+
+.pull-left[
+
+- Bidirectional LSTMs have become the workhorse for encoder-decoder Seq2Seq Models
+- Good:
+    * perhaps the proper inductive bias: iterative/recursive transformations
+- Some limitations: 
+    * inherently sequential (hard to parallelize)
+    * forgetting ("LSTMs work in practice, but can they work in theory?")
+]
+
+--
+
+.pull-right[
+
+- Transformers:
+    * Relies solely on self-attention to learn long dependencies 
+
+<img src="https://jalammar.github.io/images/t/The_transformer_encoder_decoder_stack.png" height="250">
+
+
+]
+
+---
+
+
+## Generative Pre-Training for NLP
 
 ### Fine-Tuning Language Models
 
@@ -177,33 +205,6 @@ $$\mathcal{L}_{\mathcal{D}}\left(\theta_{\mathcal{D}}\vert\boldsymbol{W}\right)=
 
 <img src="imgs/en-ruski-muse.png" height="450">
 
-
----
-
-## Transformer Language Models
-### TPU Training with `Tensor2Tensor`
-
-.pull-left[
-
-- Bidirectional LSTMs have become the workhorse for encoder-decoder Seq2Seq Models
-- Good:
-    * perhaps the proper inductive bias: iterative/recursive transformations
-- Some limitations: 
-    * inherently sequential (hard to parallelize)
-    * forgetting ("LSTMs work in practice, but can they work in theory?")
-]
-
---
-
-.pull-right[
-
-- Transformers:
-    * Relies solely on self-attention to learn long dependencies 
-
-<img src="https://jalammar.github.io/images/t/The_transformer_encoder_decoder_stack.png" height="250">
-
-
-]
 
 ---
 

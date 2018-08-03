@@ -4,7 +4,7 @@
     <title>Improving Language Understanding for Low-Resource Languages and Tasks with Generative Pre-Training</title>
     <meta charset="utf-8">
     <meta name="author" content="Ali Zaidi" />
-    <meta name="date" content="2018-07-27" />
+    <meta name="date" content="2018-08-03" />
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -14,7 +14,7 @@ class: center, middle, inverse, title-slide
 # Improving Language Understanding for Low-Resource Languages and Tasks with Generative Pre-Training
 ## Deep Learning Camp Jeju 2018
 ### Ali Zaidi
-### 2018-07-27
+### 2018-08-03
 
 ---
 
@@ -35,17 +35,17 @@ class: center, middle, inverse, title-slide
 
 --
 
-&lt;img src="imgs/distill-vis.png" height="250"&gt;
+&lt;img src="imgs/distill-vis.png" height="225"&gt;
 
 --
 
-* In CV, combination of ImageNet and CNNs has been a big success
-    - enabled highly performant models
-    - better understanding of the models
-    - more inspired from how perception/vision may work
+* CV: combination of ImageNet and CNNs has been a big success
+    - enabled highly performant models plus better understanding
+    - good inductive bias, the right canonical task, somewhat inspired by how perception/vision works in humans
 * NLP:
     - still stuck on word embeddings
     - single-task models
+    - not sure what the _canonical_ NLP task is, nor how to properly encode our inductive bias for language
 
 ---
 
@@ -101,7 +101,35 @@ $$
 
 ---
 
-## Literature Review
+## Transformer Language Models
+### The Good, the Bad, and the Ugly
+
+.pull-left[
+
+- Bidirectional LSTMs have become the workhorse for encoder-decoder Seq2Seq Models
+- Good:
+    * perhaps the proper inductive bias: iterative/recursive transformations
+- Some limitations: 
+    * inherently sequential (hard to parallelize)
+    * forgetting ("LSTMs work in practice, but can they work in theory?")
+]
+
+--
+
+.pull-right[
+
+- Transformers:
+    * Relies solely on self-attention to learn long dependencies 
+
+&lt;img src="https://jalammar.github.io/images/t/The_transformer_encoder_decoder_stack.png" height="250"&gt;
+
+
+]
+
+---
+
+
+## Generative Pre-Training for NLP
 
 ### Fine-Tuning Language Models
 
@@ -167,33 +195,6 @@ Language | Dataset | Perplexity
 
 &lt;img src="imgs/en-ruski-muse.png" height="450"&gt;
 
-
----
-
-## Transformer Language Models
-### TPU Training with `Tensor2Tensor`
-
-.pull-left[
-
-- Bidirectional LSTMs have become the workhorse for encoder-decoder Seq2Seq Models
-- Good:
-    * perhaps the proper inductive bias: iterative/recursive transformations
-- Some limitations: 
-    * inherently sequential (hard to parallelize)
-    * forgetting ("LSTMs work in practice, but can they work in theory?")
-]
-
---
-
-.pull-right[
-
-- Transformers:
-    * Relies solely on self-attention to learn long dependencies 
-
-&lt;img src="https://jalammar.github.io/images/t/The_transformer_encoder_decoder_stack.png" height="250"&gt;
-
-
-]
 
 ---
 
